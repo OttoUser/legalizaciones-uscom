@@ -9,7 +9,7 @@ FROM nginx:alpine
 COPY --from=build /app/build/web /usr/share/nginx/html
 COPY <<EOF /etc/nginx/templates/default.conf.template
 server {
-  listen ${PORT};
+  listen 8080;
   server_name _;
   root /usr/share/nginx/html;
   index index.html;
@@ -19,3 +19,4 @@ EOF
 ENV PORT=8080
 EXPOSE 8080
 CMD ["/docker-entrypoint.sh", "nginx", "-g", "daemon off;"]
+
