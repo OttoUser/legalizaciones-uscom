@@ -1,6 +1,8 @@
-[build]
+﻿[build]
 builder = "NIXPACKS"
+buildCommand = "npm run prisma:generate"
+
 [deploy]
-startCommand = "npm run migrate && npm start"
+startCommand = "npx prisma db push && npm start"
 healthcheckPath = "/health"
 healthcheckTimeout = 100
