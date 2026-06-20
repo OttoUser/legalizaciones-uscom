@@ -2,10 +2,11 @@
 WORKDIR /app
 COPY . .
 RUN flutter pub get
-ARG API_BASE_URL
+ARG API_BASE_URL=https://legalizaciones-api-production.up.railway.app/api
 RUN flutter build web --release --dart-define=API_BASE_URL=${API_BASE_URL}
 
 FROM nginx:alpine
 COPY --from=build /app/build/web /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+
