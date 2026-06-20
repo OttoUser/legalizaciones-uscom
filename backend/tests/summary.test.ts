@@ -1,0 +1,1 @@
+import { describe,it,expect } from 'vitest'; import { calculateSummary } from '../src/summary.js'; describe('saldos',()=>it('calcula anticipo menos gastos',()=>{const p:any={baseCurrency:'COP',advanceCurrency:'COP',advanceAmount:100000,exchangeRate:null};const e:any=[{currency:'COP',totalValue:60000}];expect(calculateSummary(p,e).balance).toBe(40000)}));
